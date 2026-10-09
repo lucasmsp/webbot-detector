@@ -174,3 +174,17 @@ python tests/teste_crypto_challenges.py https://webbot-detector.onrender.com
 # Basic Selenium bot test:
 python tests/teste_bot.py http://localhost:8000
 ```
+
+---
+
+### 7. Performance & Latency Benchmarks
+
+To reproduce the empirical performance metrics (decision time, throughput, payload sizes, and network roundtrip latency), run the standalone benchmark suite:
+
+```bash
+# Run full benchmark (RiskEngine + Crypto + Payload + Local HTTP Roundtrip):
+python tests/benchmark.py
+
+# Run benchmark targeting a remote deployment:
+python tests/benchmark.py --url=https://webbot-detector.onrender.com
+```
