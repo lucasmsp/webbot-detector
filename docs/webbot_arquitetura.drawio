@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="E-5iHnLEJ_8f6W2dpdRn">
+    <mxGraphModel dx="2054" dy="1093" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;sequenceDiagram\n    participant C as NAVEGADOR / CLIENTE\n    participant S as SERVIDOR / BACKEND\n\n    C-&gt;&gt;S: 1. GET /api/challenge\n    S--&gt;&gt;C: 2. Nonce assinado com HMAC-SHA256 (TTL: 30s)\n\n    Note over C: Coleta de Sinais&lt;br/&gt;Armadilha do Inspetor V8&lt;br/&gt;Hash Ambiental SHA-256 via Web Crypto\n\n    C-&gt;&gt;S: 3. POST /api/assess-risk (Payload + EnvHash + Token)\n\n    Note over S: Validações Criptográficas&lt;br/&gt;Validação Cruzada HTTP&lt;br/&gt;Motor Multicamadas&lt;br/&gt;Log Interno / Auditoria\n\n    S--&gt;&gt;C: 4. Resposta Segura (isBot, classification, action)&quot;,&#xa;  &quot;config&quot;: null,&#xa;  &quot;version&quot;: &quot;12&quot;&#xa;}" id="NfseIaDDU03jsC1D0Hj--1">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+            <mxGeometry as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="NAVEGADOR / CLIENTE" mermaidId="n:C" mermaidBaseStyle="html=1;shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;sequenceEdgeStyle&quot;,&quot;libavoidRouting&quot;:0,&quot;curved&quot;:0,&quot;rounded&quot;:0};lifelineDashed=0;strokeWidth=2;rounded=1;absoluteArcSize=1;arcSize=12;lifelineColor=#28253D;fillColor=#FDF4FF;strokeColor=#E879F9;fontColor=#28253D;size=73;lifelineMirror=1;fontFamily=Recursive;fontSize=16;shadow=1;shadowColor=#000000;shadowOffsetX=4;shadowOffsetY=4;shadowBlur=0;shadowOpacity=6;" mermaidBaseValue="NAVEGADOR / CLIENTE" id="NfseIaDDU03jsC1D0Hj--2">
+          <mxCell parent="NfseIaDDU03jsC1D0Hj--1" style="html=1;shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;sequenceEdgeStyle&quot;,&quot;libavoidRouting&quot;:0,&quot;curved&quot;:0,&quot;rounded&quot;:0};lifelineDashed=0;strokeWidth=2;rounded=1;absoluteArcSize=1;arcSize=12;lifelineColor=#28253D;fillColor=#FDF4FF;strokeColor=#E879F9;fontColor=#28253D;size=73;lifelineMirror=1;fontFamily=Recursive;fontSize=16;shadow=1;shadowColor=#000000;shadowOffsetX=4;shadowOffsetY=4;shadowBlur=0;shadowOpacity=6;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" vertex="1">
+            <mxGeometry height="531" width="204" x="75" y="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="SERVIDOR / BACKEND" mermaidId="n:S" mermaidBaseStyle="html=1;shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;sequenceEdgeStyle&quot;,&quot;libavoidRouting&quot;:0,&quot;curved&quot;:0,&quot;rounded&quot;:0};lifelineDashed=0;strokeWidth=2;rounded=1;absoluteArcSize=1;arcSize=12;lifelineColor=#28253D;fillColor=#F0FDFA;strokeColor=#2DD4BF;fontColor=#28253D;size=73;lifelineMirror=1;fontFamily=Recursive;fontSize=16;shadow=1;shadowColor=#000000;shadowOffsetX=4;shadowOffsetY=4;shadowBlur=0;shadowOpacity=6;" mermaidBaseValue="SERVIDOR / BACKEND" id="NfseIaDDU03jsC1D0Hj--3">
+          <mxCell parent="NfseIaDDU03jsC1D0Hj--1" style="html=1;shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;sequenceEdgeStyle&quot;,&quot;libavoidRouting&quot;:0,&quot;curved&quot;:0,&quot;rounded&quot;:0};lifelineDashed=0;strokeWidth=2;rounded=1;absoluteArcSize=1;arcSize=12;lifelineColor=#28253D;fillColor=#F0FDFA;strokeColor=#2DD4BF;fontColor=#28253D;size=73;lifelineMirror=1;fontFamily=Recursive;fontSize=16;shadow=1;shadowColor=#000000;shadowOffsetX=4;shadowOffsetY=4;shadowBlur=0;shadowOpacity=6;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" vertex="1">
+            <mxGeometry height="531" width="204" x="547" y="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="1. GET /api/challenge" mermaidId="e:C-&gt;S#0" mermaidBaseStyle="endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;" mermaidBaseValue="1. GET /api/challenge" id="NfseIaDDU03jsC1D0Hj--4">
+          <mxCell edge="1" parent="NfseIaDDU03jsC1D0Hj--1" source="NfseIaDDU03jsC1D0Hj--2" style="endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" target="NfseIaDDU03jsC1D0Hj--3">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="429" y="149" />
+              </Array>
+              <mxPoint x="191" y="149" as="sourcePoint" />
+              <mxPoint x="667" y="149" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="2. Nonce assinado com HMAC-SHA256 (TTL: 30s)" mermaidId="e:S-&gt;C#0" mermaidBaseStyle="dashed=1;fixDash=1;dashPattern=3 3;endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;" mermaidBaseValue="2. Nonce assinado com HMAC-SHA256 (TTL: 30s)" id="NfseIaDDU03jsC1D0Hj--5">
+          <mxCell edge="1" parent="NfseIaDDU03jsC1D0Hj--1" source="NfseIaDDU03jsC1D0Hj--3" style="dashed=1;fixDash=1;dashPattern=3 3;endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" target="NfseIaDDU03jsC1D0Hj--2">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="429" y="195" />
+              </Array>
+              <mxPoint x="667" y="195" as="sourcePoint" />
+              <mxPoint x="191" y="195" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="3. POST /api/assess-risk (Payload + EnvHash + Token)" mermaidId="e:C-&gt;S#1" mermaidBaseStyle="endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;" mermaidBaseValue="3. POST /api/assess-risk (Payload + EnvHash + Token)" id="NfseIaDDU03jsC1D0Hj--6">
+          <mxCell edge="1" parent="NfseIaDDU03jsC1D0Hj--1" source="NfseIaDDU03jsC1D0Hj--2" style="endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" target="NfseIaDDU03jsC1D0Hj--3">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="429" y="323" />
+              </Array>
+              <mxPoint x="191" y="323" as="sourcePoint" />
+              <mxPoint x="667" y="323" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="4. Resposta Segura (isBot, classification, action)" mermaidId="e:S-&gt;C#1" mermaidBaseStyle="dashed=1;fixDash=1;dashPattern=3 3;endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;" mermaidBaseValue="4. Resposta Segura (isBot, classification, action)" id="NfseIaDDU03jsC1D0Hj--7">
+          <mxCell edge="1" parent="NfseIaDDU03jsC1D0Hj--1" source="NfseIaDDU03jsC1D0Hj--3" style="dashed=1;fixDash=1;dashPattern=3 3;endArrow=block;endSize=9;verticalAlign=bottom;spacingBottom=2;edgeStyle=sequenceEdgeStyle;libavoidRouting=0;curved=0;rounded=0;fontSize=16;labelBackgroundColor=none;strokeWidth=1.5;strokeColor=#28253D;fontColor=#28253D;fontFamily=Recursive;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" target="NfseIaDDU03jsC1D0Hj--2">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="429" y="468" />
+              </Array>
+              <mxPoint x="667" y="468" as="sourcePoint" />
+              <mxPoint x="191" y="468" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="Coleta de Sinais&lt;br&gt;Armadilha do Inspetor V8&lt;br&gt;Hash SHA-256 via Web Crypto" mermaidId="n:note0" mermaidBaseStyle="html=1;fillColor=#fff5ad;strokeColor=#FACC15;fontColor=#28253D;fontFamily=Recursive;fontSize=16;" mermaidBaseValue="Coleta de Sinais&#xa;Armadilha do Inspetor V8&#xa;Hash Ambiental SHA-256 via Web Crypto" id="NfseIaDDU03jsC1D0Hj--8">
+          <mxCell parent="NfseIaDDU03jsC1D0Hj--1" style="html=1;fillColor=#fff5ad;strokeColor=#FACC15;fontColor=#28253D;fontFamily=Recursive;fontSize=16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" vertex="1">
+            <mxGeometry height="72" width="350" x="30" y="205" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Validações Criptográficas&#xa;Validação Cruzada HTTP&#xa;Motor Multicamadas&#xa;Log Interno / Auditoria" mermaidId="n:note1" mermaidBaseStyle="html=1;fillColor=#fff5ad;strokeColor=#FACC15;fontColor=#28253D;fontFamily=Recursive;fontSize=16;" mermaidBaseValue="Validações Criptográficas&#xa;Validação Cruzada HTTP&#xa;Motor Multicamadas&#xa;Log Interno / Auditoria" id="NfseIaDDU03jsC1D0Hj--9">
+          <mxCell parent="NfseIaDDU03jsC1D0Hj--1" style="html=1;fillColor=#fff5ad;strokeColor=#FACC15;fontColor=#28253D;fontFamily=Recursive;fontSize=16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRecursive;" vertex="1">
+            <mxGeometry height="89" width="229" x="540" y="333" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

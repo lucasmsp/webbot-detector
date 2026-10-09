@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Automação — Incognia</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 4px 0;
+        }
+
+        .header-author {
+            font-size: 12px;
+            color: #718096;
+            margin: 0;
+        }
+
+        .header-author a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .header-author a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            max-width: 580px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 22px;
+            color: #1a202c;
+            margin-bottom: 25px;
+        }
+
+        .result-box {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 24px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .loading {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        .human {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .bot {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-title">Projeto Técnico — Detecção de Automação</div>
+        <div class="header-author">Implementado por Lucas Miguel S. Ponce (lucasmsp at gmail.com)</div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Verificação de Acesso</h1>
+
+            <div id="resultBox" class="result-box loading">
+                Verificando autenticidade do acesso...
+            </div>
+        </div>
+    </main>
+
+    <!-- Client Modules: Utilities and Passive Sensor in assets/ -->
+    <script src="assets/utils.js"></script>
+    <script src="assets/collector.js"></script>
+    <script src="assets/detector.js"></script>
+
+    <script>
+        // Executa a análise assíncrona assim que a página carregar
+        window.onload = async function () {
+            const resultBox = document.getElementById('resultBox');
+
+            try {
+                // Send telemetry to backend with cryptographic challenge and environmental binding
+                const response = await detectBot();
+
+                resultBox.classList.remove('loading');
+
+                if (response && (response.isBot === true || response.classification === "automacao" || response.classification === "bot")) {
+                    resultBox.innerHTML = response.label;
+                    resultBox.classList.add('bot');
+                } else if (response && (response.isBot === false || response.classification === "humano")) {
+                    resultBox.innerHTML = response.label;
+                    resultBox.classList.add('human');
+                } else {
+                    resultBox.innerHTML = "Status desconhecido";
+                    resultBox.classList.add('bot');
+                }
+
+            } catch (err) {
+                resultBox.classList.remove('loading');
+                resultBox.classList.add('bot');
+                resultBox.innerHTML = "Erro ao verificar acesso";
+            }
+        };
+    </script>
+
+</body>
+
+</html>
